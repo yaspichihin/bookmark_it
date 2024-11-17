@@ -1,5 +1,26 @@
+# Системные и IDE файлы
 .idea/
+*.swp
+*.bak
+
+# Виртуальная среда Python
 .venv/
 
+# Python временные файлы и кэш
+__pycache__/
+*.py[cod]
+*.pyo
+*.log
+
+# База данных
 bookmarks/db.sqlite3
-bookmarks/media/
+
+# Медиа-файлы
+/bookmarks/media/*
+!/bookmarks/media/.gitkeep
+!/bookmarks/media/users/default-image.png
+
+# Конфиденциальные данные
+/.env
+cert.key
+cert.crt

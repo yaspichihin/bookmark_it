@@ -12,3 +12,32 @@
     <p><input type="submit" value="Save changes"></p>
   </form>
 {% endblock %}
+
+{% block dom_ready %}
+  // Находим все кнопки закрытия
+  document
+  .querySelectorAll(".messages .close")
+  .forEach(function(closeButton) {
+    // Добавляем обработчик клика на кнопку закрытия
+    closeButton.addEventListener("click", function(event) {
+
+      // Предотвращаем переход по ссылке
+      event.preventDefault();
+
+      // Само сообщение (li)
+      const messageItem = closeButton.parentElement;
+
+      // Список сообщений (ul)
+      const messageList = messageItem.parentElement;
+
+      // Удаляем сообщение
+      messageItem.remove();
+
+      // Проверяем, остались ли еще сообщения
+      if (messageList.children.length === 0) {
+        // Удаляем ul, если сообщений больше нет
+        messageList.remove();
+      }
+    });
+  });
+{% endblock %}
